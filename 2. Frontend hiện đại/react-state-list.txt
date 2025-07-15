@@ -1,0 +1,122 @@
+📘 REACT NGÀY 5–6: STATE + LIST + FORM
+
+=======================================
+1. src/App.jsx
+=======================================
+
+import { useState } from 'react'
+import './index.css'
+
+function App() {
+  // State lưu tên người nhập
+  const [name, setName] = useState('')
+  const [greeting, setGreeting] = useState('')
+
+  // State ghi chú: mỗi ghi chú có id và nội dung
+  const [noteInput, setNoteInput] = useState('')
+  const [notes, setNotes] = useState([])
+
+  // Xử lý khi submit tên
+  const handleNameSubmit = (e) => {
+    e.preventDefault()
+    if (name.trim()) {
+      setGreeting(`Xin chào, ${name.trim()}!`)
+    } else {
+      setGreeting('')
+    }
+  }
+
+  // Thêm ghi chú mới
+  const handleAddNote = (e) => {
+    e.preventDefault()
+    const text = noteInput.trim()
+    if (text) {
+      const newNote = {
+        id: Date.now(),
+        text: text,
+      }
+      setNotes([...notes, newNote])
+      setNoteInput('')
+    }
+  }
+
+  // Xoá ghi chú
+  const handleDelete = (id) => {
+    setNotes(notes.filter(note => note.id !== id))
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      {/* Nhập tên và hiện lời chào */}
+      <form onSubmit={handleNameSubmit} className="mb-6">
+        <h2 className="text-xl font-bold mb-2">👤 Nhập tên</h2>
+        <input
+          type="text"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          className="p-2 border rounded w-full max-w-sm mb-2"
+          placeholder="Nhập tên của bạn..."
+        />
+        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Gửi
+        </button>
+        {greeting && <p className="mt-3 text-green-600">{greeting}</p>}
+      </form>
+
+      {/* Ghi chú */}
+      <form onSubmit={handleAddNote} className="mb-4">
+        <h2 className="text-xl font-bold mb-2">📝 Ghi chú</h2>
+        <textarea
+          value={noteInput}
+          onChange={e => setNoteInput(e.target.value)}
+          className="w-full p-2 border rounded mb-2"
+          placeholder="Nhập ghi chú..."
+        />
+        <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+          Thêm
+        </button>
+      </form>
+
+      {/* Danh sách ghi chú */}
+      <ul className="space-y-2">
+        {notes.map(note => (
+          <li
+            key={note.id}
+            className="flex justify-between items-center p-3 bg-white rounded shadow"
+          >
+            <span>{note.text}</span>
+            <button
+              onClick={() => handleDelete(note.id)}
+              className="text-red-500 hover:underline"
+            >
+              Xoá
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default App
+
+
+=======================================
+📚 KIẾN THỨC ĐÃ HỌC
+=======================================
+✔ useState: quản lý dữ liệu động
+✔ Form: input, textarea, onChange, onSubmit
+✔ List: dùng .map() để hiển thị danh sách
+✔ Key prop: key={note.id}
+✔ Tương tác: thêm, xoá ghi chú
+
+=======================================
+📝 BÀI TẬP ĐÃ HOÀN THÀNH
+=======================================
+- Form nhập tên → hiện lời chào
+- Danh sách ghi chú (state mảng): thêm/xoá
+
+🎯 Bạn có thể mở rộng:
+- Thêm nút sửa ghi chú
+- Lưu ghi chú vào localStorage
+- Thêm thời gian tạo ghi chú

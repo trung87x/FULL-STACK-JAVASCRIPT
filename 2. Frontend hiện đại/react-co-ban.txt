@@ -1,0 +1,82 @@
+📘 REACT CƠ BẢN — JSX, Component, Props, Event
+
+=======================================
+1. src/components/ProfileCard.jsx
+=======================================
+
+function ProfileCard({ name, age }) {
+  return (
+    <div className="p-4 bg-white rounded shadow-md mb-4">
+      <h2 className="text-xl font-bold text-blue-600">👤 Hồ sơ cá nhân</h2>
+      <p>Tên: <strong>{name}</strong></p>
+      <p>Tuổi: <strong>{age}</strong></p>
+    </div>
+  );
+}
+
+export default ProfileCard;
+
+
+=======================================
+2. src/components/Product.jsx
+=======================================
+
+function Product({ title, price }) {
+  const handleBuy = () => {
+    alert(`🛒 Bạn vừa mua: ${title} - Giá ${price} VNĐ`);
+  };
+
+  return (
+    <div className="p-4 bg-white rounded shadow-md">
+      <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+      <p className="text-gray-600 mb-2">Giá: {price} VNĐ</p>
+      <button
+        onClick={handleBuy}
+        className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition"
+      >
+        Mua
+      </button>
+    </div>
+  );
+}
+
+export default Product;
+
+
+=======================================
+3. src/App.jsx
+=======================================
+
+import './index.css'
+import ProfileCard from './components/ProfileCard'
+import Product from './components/Product'
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      {/* 🧍 Hồ sơ cá nhân */}
+      <ProfileCard name="Trung Đinh" age={27} />
+
+      {/* 🛒 Danh sách sản phẩm */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <Product title="Chuột không dây" price={250000} />
+        <Product title="Bàn phím cơ RGB" price={850000} />
+      </div>
+    </div>
+  )
+}
+
+export default App;
+
+
+=======================================
+📚 KỸ NĂNG ĐÃ LUYỆN
+=======================================
+✔ JSX: viết HTML trong JS, dùng dấu {}
+✔ Component: function return JSX
+✔ Props: truyền dữ liệu vào component con
+✔ Event: xử lý onClick trong component Product
+
+📝 Bài tập bạn đã hoàn thành:
+- Tạo component ProfileCard hiển thị tên + tuổi
+- Tạo 2 component Product khác nhau, truyền props từ App

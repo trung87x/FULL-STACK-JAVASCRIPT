@@ -1,0 +1,172 @@
+📦 MINI PROJECT: TODO APP (REACT + TAILWIND)
+
+=======================================
+📁 CẤU TRÚC THƯ MỤC
+=======================================
+todo-app/
+├── index.html
+├── src/
+│   ├── main.jsx
+│   ├── App.jsx
+│   └── components/
+│       └── TodoItem.jsx
+├── tailwind.config.js
+├── postcss.config.js
+└── package.json
+
+
+=======================================
+1. src/components/TodoItem.jsx
+=======================================
+
+function TodoItem({ task, onToggle, onDelete }) {
+  return (
+    <li className="flex justify-between items-center bg-white p-3 rounded shadow mb-2">
+      <div>
+        <input
+          type="checkbox"
+          checked={task.done}
+          onChange={() => onToggle(task.id)}
+          className="mr-2"
+        />
+        <span className={task.done ? "line-through text-gray-500" : ""}>
+          {task.text}
+        </span>
+      </div>
+      <button
+        onClick={() => onDelete(task.id)}
+        className="text-red-600 hover:underline"
+      >
+        Xoá
+      </button>
+    </li>
+  );
+}
+
+export default TodoItem;
+
+
+=======================================
+2. src/App.jsx
+=======================================
+
+import { useState } from 'react'
+import TodoItem from './components/TodoItem'
+
+function App() {
+  const [taskInput, setTaskInput] = useState('')
+  const [tasks, setTasks] = useState([])
+  const [filter, setFilter] = useState('all') // all | done | not_done
+
+  const addTask = (e) => {
+    e.preventDefault()
+    const text = taskInput.trim()
+    if (text) {
+      const newTask = {
+        id: Date.now(),
+        text: text,
+        done: false
+      }
+      setTasks([...tasks, newTask])
+      setTaskInput('')
+    }
+  }
+
+  const toggleTask = (id) => {
+    setTasks(tasks.map(task =>
+      task.id === id ? { ...task, done: !task.done } : task
+    ))
+  }
+
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id))
+  }
+
+  const filteredTasks = tasks.filter(task => {
+    if (filter === 'done') return task.done
+    if (filter === 'not_done') return !task.done
+    return true
+  })
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="text-3xl font-bold mb-4 text-center">📝 ToDo App</h1>
+
+      <form onSubmit={addTask} className="mb-6 flex gap-2 max-w-xl mx-auto">
+        <input
+          type="text"
+          value={taskInput}
+          onChange={e => setTaskInput(e.target.value)}
+          placeholder="Nhập công việc..."
+          className="flex-1 p-2 border rounded"
+        />
+        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Thêm
+        </button>
+      </form>
+
+      <div className="flex justify-center gap-4 mb-4">
+        <button onClick={() => setFilter('all')} className={filter === 'all' ? 'font-bold' : ''}>Tất cả</button>
+        <button onClick={() => setFilter('done')} className={filter === 'done' ? 'font-bold' : ''}>Đã làm</button>
+        <button onClick={() => setFilter('not_done')} className={filter === 'not_done' ? 'font-bold' : ''}>Chưa làm</button>
+      </div>
+
+      <ul className="max-w-xl mx-auto">
+        {filteredTasks.length > 0 ? (
+          filteredTasks.map(task => (
+            <TodoItem
+              key={task.id}
+              task={task}
+              onToggle={toggleTask}
+              onDelete={deleteTask}
+            />
+          ))
+        ) : (
+          <p className="text-center text-gray-500">Không có công việc nào</p>
+        )}
+      </ul>
+    </div>
+  )
+}
+
+export default App
+
+
+=======================================
+3. src/main.jsx
+=======================================
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+
+
+=======================================
+4. src/index.css
+=======================================
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+=======================================
+📚 TÍNH NĂNG ĐÃ HOÀN THÀNH
+=======================================
+✔ Thêm task mới (dùng useState)
+✔ Hiển thị danh sách với .map() + key
+✔ Tích checkbox để đánh dấu done
+✔ Nút xoá task
+✔ Lọc theo filter: tất cả / đã làm / chưa làm
+✔ Tách component TodoItem
+
+✅ Bạn có thể mở rộng:
+- Lưu task vào localStorage
+- Cho phép sửa task
+- Đếm số việc còn lại
