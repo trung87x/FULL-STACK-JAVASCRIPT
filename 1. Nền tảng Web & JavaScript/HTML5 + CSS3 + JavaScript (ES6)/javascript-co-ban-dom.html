@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập JavaScript cơ bản</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        transition: background-color 0.3s ease;
+      }
+      label,
+      input,
+      button {
+        display: block;
+        margin-top: 10px;
+      }
+      #greeting {
+        margin-top: 15px;
+        font-weight: bold;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>👋 Xin chào bạn!</h1>
+
+    <!-- Nút đổi màu nền -->
+    <button id="changeBgBtn">🎨 Đổi màu nền</button>
+
+    <!-- Nhập tên & hiển thị lời chào -->
+    <div>
+      <label for="yourName">Nhập tên bạn:</label>
+      <input type="text" id="yourName" placeholder="Ví dụ: Trung" />
+      <p id="greeting"></p>
+    </div>
+
+    <!-- Form liên hệ -->
+    <h2>📬 Liên hệ</h2>
+    <form id="contactForm">
+      <label for="name">Tên *</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Tin nhắn</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <button type="submit">Gửi</button>
+    </form>
+
+    <!-- Script JavaScript -->
+    <script>
+      // Biến màu nền
+      const colors = ["#f4f4f4", "#d1ecf1", "#f8d7da", "#d4edda", "#fff3cd"];
+      let colorIndex = 0;
+
+      // Đổi màu nền khi bấm nút
+      const changeBgBtn = document.getElementById("changeBgBtn");
+      changeBgBtn.addEventListener("click", () => {
+        colorIndex = (colorIndex + 1) % colors.length;
+        document.body.style.backgroundColor = colors[colorIndex];
+      });
+
+      // Bắt sự kiện nhập tên và hiển thị lời chào
+      const yourNameInput = document.getElementById("yourName");
+      const greeting = document.getElementById("greeting");
+
+      yourNameInput.addEventListener("input", () => {
+        const name = yourNameInput.value.trim();
+        if (name.length > 0) {
+          greeting.textContent = `Xin chào, ${name}! Chúc bạn một ngày vui vẻ.`;
+        } else {
+          greeting.textContent = "";
+        }
+      });
+
+      // Validate form liên hệ
+      const contactForm = document.getElementById("contactForm");
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // Ngăn form gửi đi thật
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        if (name === "" || email === "") {
+          alert("Vui lòng nhập đầy đủ TÊN và EMAIL!");
+          return;
+        }
+
+        alert("🎉 Gửi thành công! Cảm ơn bạn đã liên hệ.");
+        contactForm.reset();
+      });
+    </script>
+  </body>
+</html>
