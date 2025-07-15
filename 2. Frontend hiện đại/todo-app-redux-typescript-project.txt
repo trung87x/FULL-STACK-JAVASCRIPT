@@ -1,0 +1,184 @@
+📦 TODO REDUX TOOLKIT + TYPESCRIPT APP
+
+=======================================
+📁 CẤU TRÚC THƯ MỤC
+=======================================
+src/
+├── app/store.ts               // Khởi tạo store
+├── features/todo/todoSlice.ts // Redux slice
+├── types/index.ts             // Định nghĩa interface Todo
+├── components/TodoItem.tsx    // Hiển thị từng task
+└── App.tsx                    // Giao diện chính
+
+
+=======================================
+1. src/types/index.ts
+=======================================
+
+export interface Todo {
+  id: number
+  text: string
+  done: boolean
+}
+
+
+=======================================
+2. src/app/store.ts
+=======================================
+
+import { configureStore } from '@reduxjs/toolkit'
+import todoReducer from '../features/todo/todoSlice'
+
+export const store = configureStore({
+  reducer: {
+    todo: todoReducer
+  }
+})
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
+
+=======================================
+3. src/features/todo/todoSlice.ts
+=======================================
+
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Todo } from '../../types'
+
+interface TodoState {
+  todos: Todo[]
+}
+
+const initialState: TodoState = {
+  todos: []
+}
+
+const todoSlice = createSlice({
+  name: 'todo',
+  initialState,
+  reducers: {
+    addTodo: (state, action: PayloadAction<string>) => {
+      const newTodo: Todo = {
+        id: Date.now(),
+        text: action.payload,
+        done: false
+      }
+      state.todos.push(newTodo)
+    },
+    toggleDone: (state, action: PayloadAction<number>) => {
+      const todo = state.todos.find(t => t.id === action.payload)
+      if (todo) {
+        todo.done = !todo.done
+      }
+    },
+    removeTodo: (state, action: PayloadAction<number>) => {
+      state.todos = state.todos.filter(t => t.id !== action.payload)
+    }
+  }
+})
+
+export const { addTodo, toggleDone, removeTodo } = todoSlice.actions
+export default todoSlice.reducer
+
+
+=======================================
+4. src/components/TodoItem.tsx
+=======================================
+
+import { useDispatch } from 'react-redux'
+import { toggleDone, removeTodo } from '../features/todo/todoSlice'
+import { AppDispatch } from '../app/store'
+import { Todo } from '../types'
+
+interface Props extends Todo {}
+
+export default function TodoItem({ id, text, done }: Props) {
+  const dispatch = useDispatch<AppDispatch>()
+
+  return (
+    <li className="flex justify-between items-center bg-white p-3 rounded shadow mb-2">
+      <span
+        onClick={() => dispatch(toggleDone(id))}
+        className={`cursor-pointer ${done ? 'line-through text-gray-500' : ''}`}
+      >
+        {text}
+      </span>
+      <button
+        onClick={() => dispatch(removeTodo(id))}
+        className="text-red-500 hover:underline"
+      >
+        Xoá
+      </button>
+    </li>
+  )
+}
+
+
+=======================================
+5. src/App.tsx
+=======================================
+
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addTodo } from './features/todo/todoSlice'
+import { RootState, AppDispatch } from './app/store'
+import TodoItem from './components/TodoItem'
+
+export default function App() {
+  const [task, setTask] = useState<string>('')
+  const todos = useSelector((state: RootState) => state.todo.todos)
+  const dispatch = useDispatch<AppDispatch>()
+
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (task.trim()) {
+      dispatch(addTodo(task))
+      setTask('')
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="text-3xl font-bold mb-6 text-center">📝 Todo Redux TS</h1>
+
+      <form onSubmit={handleAdd} className="flex gap-2 max-w-xl mx-auto mb-6">
+        <input
+          type="text"
+          value={task}
+          onChange={e => setTask(e.target.value)}
+          placeholder="Nhập công việc..."
+          className="flex-1 p-2 border rounded"
+        />
+        <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+          Thêm
+        </button>
+      </form>
+
+      <ul className="max-w-xl mx-auto">
+        {todos.map(todo => (
+          <TodoItem key={todo.id} {...todo} />
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+
+=======================================
+📚 TỔNG KẾT KIẾN THỨC
+=======================================
+✔️ Redux Toolkit + TypeScript hoàn chỉnh
+✔️ Tạo slice với `PayloadAction<T>`
+✔️ Tách kiểu Todo ra file riêng
+✔️ Typing rõ ràng cho:
+   • props (interface Props)
+   • state (TodoState)
+   • dispatch & useSelector (AppDispatch, RootState)
+✔️ Component nhỏ gọn, dễ bảo trì
+
+🚀 Bạn có thể mở rộng:
+- Thêm filter: all/done/undone
+- Lưu vào `localStorage`
+- Gọi API thêm/sửa task từ backend
+
