@@ -1,28 +1,28 @@
-========================================
-Ngữ cảnh #9: Sử dụng middleware Redux
-========================================
+// ========================================
+// Ngữ cảnh #9: Sử dụng middleware Redux
+// ========================================
 
-🎯 Mục tiêu:
-- Ghi log các action và state thay đổi (debug)
-- Cho phép dispatch async action (gọi API)
-- Xử lý logic tùy chỉnh nâng cao giữa action và reducer
+// 🎯 Mục tiêu:
+// - Ghi log các action và state thay đổi (debug)
+// - Cho phép dispatch async action (gọi API)
+// - Xử lý logic tùy chỉnh nâng cao giữa action và reducer
 
-========================================
-1. Cấu trúc thư mục ví dụ
-========================================
+// ========================================
+// 1. Cấu trúc thư mục ví dụ
+// ========================================
 
-src/
-├── app/
-│   └── store.js        // Cài middleware ở đây
-├── features/
-│   └── counter/
-│       └── counterSlice.js
-├── App.jsx
-└── main.jsx
+// src/
+// ├── app/
+// │   └── store.js        // Cài middleware ở đây
+// ├── features/
+// │   └── counter/
+// │       └── counterSlice.js
+// ├── App.jsx
+// └── main.jsx
 
-========================================
-2. Thêm Redux Logger Middleware
-========================================
+// ========================================
+// 2. Thêm Redux Logger Middleware
+// ========================================
 // src/app/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
@@ -36,9 +36,9 @@ export const store = configureStore({
     getDefaultMiddleware().concat(logger), // ➕ Gắn thêm logger
 });
 
-========================================
-3. Cài thunk cho async action (mặc định đã có)
-========================================
+// ========================================
+// 3. Cài thunk cho async action (mặc định đã có)
+// ========================================
 // src/features/counter/counterSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -79,9 +79,9 @@ const counterSlice = createSlice({
 export const { increment } = counterSlice.actions;
 export default counterSlice.reducer;
 
-========================================
-4. Dùng middleware trong Component
-========================================
+// ========================================
+// 4. Dùng middleware trong Component
+// ========================================
 // App.jsx
 import { useDispatch, useSelector } from "react-redux";
 import { increment, fetchNumber } from "./features/counter/counterSlice";
@@ -101,9 +101,9 @@ export default function App() {
   );
 }
 
-========================================
-5. Cấu hình chính
-========================================
+// ========================================
+// 5. Cấu hình chính
+// ========================================
 // main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -117,16 +117,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </Provider>
 );
 
-========================================
-✅ Ghi chú:
-========================================
-- `redux-logger`: Ghi log chi tiết action và state → rất hữu ích khi debug.
-- `redux-thunk`: Cho phép dispatch hàm async → gọi API không cần createAsyncThunk cũng được.
-- Có thể viết middleware tùy chỉnh → xử lý điều kiện, validate, tracking...
+// ========================================
+// ✅ Ghi chú:
+// ========================================
+// - `redux-logger`: Ghi log chi tiết action và state → rất hữu ích khi debug.
+// - `redux-thunk`: Cho phép dispatch hàm async → gọi API không cần createAsyncThunk cũng được.
+// - Có thể viết middleware tùy chỉnh → xử lý điều kiện, validate, tracking...
 
-🧪 Nếu muốn thử middleware custom:
-```js
-const customLogger = (store) => (next) => (action) => {
-  console.log("👀 Action:", action.type);
-  return next(action);
-};
+// 🧪 Nếu muốn thử middleware custom:
+// ```js
+// const customLogger = (store) => (next) => (action) => {
+//   console.log("👀 Action:", action.type);
+//   return next(action);
+// };

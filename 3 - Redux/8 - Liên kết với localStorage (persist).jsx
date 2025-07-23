@@ -1,29 +1,29 @@
-==============================
-Ngữ cảnh #8: Liên kết localStorage
-==============================
+// ==============================
+// Ngữ cảnh #8: Liên kết localStorage
+// ==============================
 
-🎯 Mục tiêu:
-- Lưu dữ liệu Redux (như token, giỏ hàng) vào localStorage
-- Tự động khôi phục lại state khi reload trang
-- Đảm bảo đồng bộ giữa Redux và localStorage
+// 🎯 Mục tiêu:
+// - Lưu dữ liệu Redux (như token, giỏ hàng) vào localStorage
+// - Tự động khôi phục lại state khi reload trang
+// - Đảm bảo đồng bộ giữa Redux và localStorage
 
-==============================
-1. Cấu trúc thư mục
-==============================
+// ==============================
+// 1. Cấu trúc thư mục
+// ==============================
 
-src/
-├── app/
-│   └── store.js
-├── features/
-│   └── auth/
-│       ├── authSlice.js
-│       └── LoginForm.jsx
-├── App.jsx
-└── main.jsx
+// src/
+// ├── app/
+// │   └── store.js
+// ├── features/
+// │   └── auth/
+// │       ├── authSlice.js
+// │       └── LoginForm.jsx
+// ├── App.jsx
+// └── main.jsx
 
-==============================
-2. Tạo slice có dùng localStorage
-==============================
+// ==============================
+// 2. Tạo slice có dùng localStorage
+// ==============================
 // src/features/auth/authSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -50,9 +50,9 @@ const authSlice = createSlice({
 export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;
 
-==============================
-3. Cài đặt store
-==============================
+// ==============================
+// 3. Cài đặt store
+// ==============================
 // src/app/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../features/auth/authSlice";
@@ -63,9 +63,9 @@ export const store = configureStore({
   },
 });
 
-==============================
-4. Sử dụng trong Component
-==============================
+// ==============================
+// 4. Sử dụng trong Component
+// ==============================
 // src/features/auth/LoginForm.jsx
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -108,9 +108,9 @@ export default function LoginForm() {
   );
 }
 
-==============================
-5. Kết nối vào App
-==============================
+// ==============================
+// 5. Kết nối vào App
+// ==============================
 // App.jsx
 import LoginForm from "./features/auth/LoginForm";
 export default function App() {
@@ -135,12 +135,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </Provider>
 );
 
-==============================
-✅ Ghi chú:
-==============================
-- Dữ liệu sẽ **giữ nguyên** kể cả khi F5 (reload)
-- Có thể dùng cho `token`, `cart`, `theme`, `language`...
-- Đây là cách thủ công (dễ hiểu, kiểm soát tốt)
+// ==============================
+// ✅ Ghi chú:
+// ==============================
+// - Dữ liệu sẽ **giữ nguyên** kể cả khi F5 (reload)
+// - Có thể dùng cho `token`, `cart`, `theme`, `language`...
+// - Đây là cách thủ công (dễ hiểu, kiểm soát tốt)
 
-🛠 Ngoài ra, có thể dùng thư viện như:
-- redux-persist: tự động hóa quá trình lưu/khôi phục
+// 🛠 Ngoài ra, có thể dùng thư viện như:
+// - redux-persist: tự động hóa quá trình lưu/khôi phục
