@@ -1,30 +1,30 @@
-============================
-🧩 Ngữ cảnh #4: Lưu trạng thái giao diện (UI)
-============================
+// ============================
+// 🧩 Ngữ cảnh #4: Lưu trạng thái giao diện (UI)
+// ============================
 
-🎯 Mục tiêu:
-Lưu và điều khiển trạng thái UI như:
-- Bật/tắt modal
-- Đóng/mở sidebar
-- Bật dark mode
-- Chuyển tab đang chọn
-- Loading indicator...
+// 🎯 Mục tiêu:
+// Lưu và điều khiển trạng thái UI như:
+// - Bật/tắt modal
+// - Đóng/mở sidebar
+// - Bật dark mode
+// - Chuyển tab đang chọn
+// - Loading indicator...
 
-============================
-📁 Cấu trúc thư mục
-============================
-src/
-├── app/
-│   └── store.js
-├── features/
-│   └── ui/
-│       ├── uiSlice.js
-│       └── UIComponent.jsx
-└── App.jsx
+// ============================
+// 📁 Cấu trúc thư mục
+// ============================
+// src/
+// ├── app/
+// │   └── store.js
+// ├── features/
+// │   └── ui/
+// │       ├── uiSlice.js
+// │       └── UIComponent.jsx
+// └── App.jsx
 
-============================
-🧠 Redux Slice – uiSlice.js
-============================
+// ============================
+// 🧠 Redux Slice – uiSlice.js
+// ============================
 import { createSlice } from "@reduxjs/toolkit";
 
 const uiSlice = createSlice({
@@ -60,9 +60,9 @@ export const {
 
 export default uiSlice.reducer;
 
-============================
-⚙️ Store – store.js
-============================
+// ============================
+// ⚙️ Store – store.js
+// ============================
 import { configureStore } from "@reduxjs/toolkit";
 import uiReducer from "../features/ui/uiSlice";
 
@@ -72,9 +72,9 @@ export const store = configureStore({
   },
 });
 
-============================
-📦 Component – UIComponent.jsx
-============================
+// ============================
+// 📦 Component – UIComponent.jsx
+// ============================
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -107,9 +107,9 @@ export default function UIComponent() {
   );
 }
 
-============================
-🔗 App.jsx
-============================
+// ============================
+// 🔗 App.jsx
+// ============================
 import React from "react";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
@@ -125,9 +125,9 @@ function App() {
 
 export default App;
 
-============================
-✅ Ghi chú cuối cùng
-============================
-- Slice này dùng cho trạng thái giao diện, không phải dữ liệu chính.
-- Thường dùng cùng với modal, sidebar, theme switcher, menu tab...
-- Tránh dùng quá nhiều trạng thái UI trong nhiều slice khác nhau → nên gom chung.
+// ============================
+// ✅ Ghi chú cuối cùng
+// ============================
+// - Slice này dùng cho trạng thái giao diện, không phải dữ liệu chính.
+// - Thường dùng cùng với modal, sidebar, theme switcher, menu tab...
+// - Tránh dùng quá nhiều trạng thái UI trong nhiều slice khác nhau → nên gom chung.

@@ -1,31 +1,31 @@
-============================
-🧩 Ngữ cảnh #6: Quản lý phân trang (Pagination)
-============================
+// ============================
+// 🧩 Ngữ cảnh #6: Quản lý phân trang (Pagination)
+// ============================
 
-🎯 Mục tiêu:
-Lưu và điều khiển trạng thái phân trang như:
-- Trang hiện tại (current page)
-- Số phần tử mỗi trang (limit/pageSize)
-- Tổng số trang (optional)
-=> Giúp giữ trạng thái khi người dùng chuyển trang, hoặc khi kết hợp với filter/search.
+// 🎯 Mục tiêu:
+// Lưu và điều khiển trạng thái phân trang như:
+// - Trang hiện tại (current page)
+// - Số phần tử mỗi trang (limit/pageSize)
+// - Tổng số trang (optional)
+// => Giúp giữ trạng thái khi người dùng chuyển trang, hoặc khi kết hợp với filter/search.
 
-============================
-📁 Cấu trúc thư mục
-============================
-src/
-├── app/
-│   └── store.js
-├── features/
-│   ├── pagination/
-│   │   ├── paginationSlice.js
-│   │   └── PaginationControl.jsx
-│   └── posts/
-│       └── PostList.jsx (giả định là danh sách áp dụng phân trang)
-└── App.jsx
+// ============================
+// 📁 Cấu trúc thư mục
+// ============================
+// src/
+// ├── app/
+// │   └── store.js
+// ├── features/
+// │   ├── pagination/
+// │   │   ├── paginationSlice.js
+// │   │   └── PaginationControl.jsx
+// │   └── posts/
+// │       └── PostList.jsx (giả định là danh sách áp dụng phân trang)
+// └── App.jsx
 
-============================
-🧠 Redux Slice – paginationSlice.js
-============================
+// ============================
+// 🧠 Redux Slice – paginationSlice.js
+// ============================
 import { createSlice } from "@reduxjs/toolkit";
 
 const paginationSlice = createSlice({
@@ -51,9 +51,9 @@ const paginationSlice = createSlice({
 export const { setCurrentPage, setPageSize, setTotalPages } = paginationSlice.actions;
 export default paginationSlice.reducer;
 
-============================
-⚙️ Store – store.js
-============================
+// ============================
+// ⚙️ Store – store.js
+// ============================
 import { configureStore } from "@reduxjs/toolkit";
 import paginationReducer from "../features/pagination/paginationSlice";
 
@@ -63,9 +63,9 @@ export const store = configureStore({
   },
 });
 
-============================
-🧩 Component – PaginationControl.jsx
-============================
+// ============================
+// 🧩 Component – PaginationControl.jsx
+// ============================
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -104,9 +104,9 @@ export default function PaginationControl() {
   );
 }
 
-============================
-🔗 App.jsx
-============================
+// ============================
+// 🔗 App.jsx
+// ============================
 import React from "react";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
@@ -122,9 +122,9 @@ function App() {
 
 export default App;
 
-============================
-📌 Ghi chú cuối cùng
-============================
-- Việc lấy dữ liệu tương ứng với `currentPage` và `pageSize` thường nằm trong side-effect (useEffect hoặc thunk).
-- Có thể kết hợp cùng các filter/search để gọi lại API khi các tham số thay đổi.
-- `totalPages` có thể lấy từ API và lưu vào Redux nếu cần render UI điều hướng nâng cao.
+// ============================
+// 📌 Ghi chú cuối cùng
+// ============================
+// - Việc lấy dữ liệu tương ứng với `currentPage` và `pageSize` thường nằm trong side-effect (useEffect hoặc thunk).
+// - Có thể kết hợp cùng các filter/search để gọi lại API khi các tham số thay đổi.
+// - `totalPages` có thể lấy từ API và lưu vào Redux nếu cần render UI điều hướng nâng cao.

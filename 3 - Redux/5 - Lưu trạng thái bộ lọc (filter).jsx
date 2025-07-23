@@ -1,31 +1,31 @@
-============================
-🧩 Ngữ cảnh #5: Lưu trạng thái bộ lọc (Filter)
-============================
+// ============================
+// 🧩 Ngữ cảnh #5: Lưu trạng thái bộ lọc (Filter)
+// ============================
 
-🎯 Mục tiêu:
-Lưu trạng thái bộ lọc cho danh sách như:
-- Từ khóa tìm kiếm
-- Loại danh mục (category)
-- Trạng thái hiển thị (hiện tất cả, đã hoàn thành, chưa hoàn thành)
-- Sắp xếp theo (tên, thời gian, độ ưu tiên...)
+// 🎯 Mục tiêu:
+// Lưu trạng thái bộ lọc cho danh sách như:
+// - Từ khóa tìm kiếm
+// - Loại danh mục (category)
+// - Trạng thái hiển thị (hiện tất cả, đã hoàn thành, chưa hoàn thành)
+// - Sắp xếp theo (tên, thời gian, độ ưu tiên...)
 
-============================
-📁 Cấu trúc thư mục
-============================
-src/
-├── app/
-│   └── store.js
-├── features/
-│   ├── filters/
-│   │   ├── filterSlice.js
-│   │   └── FilterPanel.jsx
-│   └── todos/
-│       └── TodoList.jsx (giả định dùng dữ liệu todo có áp dụng filter)
-└── App.jsx
+// ============================
+// 📁 Cấu trúc thư mục
+// ============================
+// src/
+// ├── app/
+// │   └── store.js
+// ├── features/
+// │   ├── filters/
+// │   │   ├── filterSlice.js
+// │   │   └── FilterPanel.jsx
+// │   └── todos/
+// │       └── TodoList.jsx (giả định dùng dữ liệu todo có áp dụng filter)
+// └── App.jsx
 
-============================
-🧠 Redux Slice – filterSlice.js
-============================
+// ============================
+// 🧠 Redux Slice – filterSlice.js
+// ============================
 import { createSlice } from "@reduxjs/toolkit";
 
 const filterSlice = createSlice({
@@ -57,9 +57,9 @@ export const { setSearchText, setCategory, setStatus, setSortBy } =
 
 export default filterSlice.reducer;
 
-============================
-⚙️ Store – store.js
-============================
+// ============================
+// ⚙️ Store – store.js
+// ============================
 import { configureStore } from "@reduxjs/toolkit";
 import filterReducer from "../features/filters/filterSlice";
 
@@ -69,9 +69,9 @@ export const store = configureStore({
   },
 });
 
-============================
-🧩 Component – FilterPanel.jsx
-============================
+// ============================
+// 🧩 Component – FilterPanel.jsx
+// ============================
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -126,9 +126,9 @@ export default function FilterPanel() {
   );
 }
 
-============================
-🔗 App.jsx
-============================
+// ============================
+// 🔗 App.jsx
+// ============================
 import React from "react";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
@@ -144,9 +144,9 @@ function App() {
 
 export default App;
 
-============================
-✅ Ghi chú cuối cùng
-============================
-- Bộ lọc này chỉ là "bộ nhớ" của giao diện, không chứa dữ liệu thực.
-- Component danh sách (todo, user...) cần lấy giá trị filter từ state để lọc.
-- Tách filter slice riêng giúp dễ mở rộng, tái sử dụng ở nhiều nơi khác nhau.
+// ============================
+// ✅ Ghi chú cuối cùng
+// ============================
+// - Bộ lọc này chỉ là "bộ nhớ" của giao diện, không chứa dữ liệu thực.
+// - Component danh sách (todo, user...) cần lấy giá trị filter từ state để lọc.
+// - Tách filter slice riêng giúp dễ mở rộng, tái sử dụng ở nhiều nơi khác nhau.

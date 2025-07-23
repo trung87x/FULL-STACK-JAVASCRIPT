@@ -1,36 +1,36 @@
-🛒 [Redux #2] Ngữ cảnh: Quản lý giỏ hàng (cart)
+// 🛒 [Redux #2] Ngữ cảnh: Quản lý giỏ hàng (cart)
 
-============================
-📁 CẤU TRÚC THƯ MỤC (GỢI Ý)
-============================
-src/
-├── app/
-│   └── store.js
-├── features/
-│   └── cart/
-│       ├── cartSlice.jsx
-│       ├── cartSelectors.js
-│       └── Cart.jsx
-├── App.jsx
-├── main.jsx
-└── index.html
+// ============================
+// 📁 CẤU TRÚC THƯ MỤC (GỢI Ý)
+// ============================
+// src/
+// ├── app/
+// │   └── store.js
+// ├── features/
+// │   └── cart/
+// │       ├── cartSlice.jsx
+// │       ├── cartSelectors.js
+// │       └── Cart.jsx
+// ├── App.jsx
+// ├── main.jsx
+// └── index.html
 
-============================
-🧠 MODEL – STATE CẦN QUẢN LÝ
-============================
-- items: Mảng chứa các sản phẩm đã thêm vào giỏ
-- Mỗi sản phẩm có: id, name, price, quantity
+// ============================
+// 🧠 MODEL – STATE CẦN QUẢN LÝ
+// ============================
+// - items: Mảng chứa các sản phẩm đã thêm vào giỏ
+// - Mỗi sản phẩm có: id, name, price, quantity
 
-Hành vi:
-✔ Thêm sản phẩm
-✔ Tăng số lượng nếu đã có
-✔ Giảm số lượng hoặc xoá sản phẩm
-✔ Tính tổng tiền
-✔ Xoá toàn bộ giỏ hàng
+// Hành vi:
+// ✔ Thêm sản phẩm
+// ✔ Tăng số lượng nếu đã có
+// ✔ Giảm số lượng hoặc xoá sản phẩm
+// ✔ Tính tổng tiền
+// ✔ Xoá toàn bộ giỏ hàng
 
-============================
-⚙️ cartSlice.jsx
-============================
+// ============================
+// ⚙️ cartSlice.jsx
+// ============================
 // features/cart/cartSlice.jsx
 import { createSlice } from '@reduxjs/toolkit';
 
@@ -64,18 +64,18 @@ const cartSlice = createSlice({
 export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
 
-============================
-📊 cartSelectors.js
-============================
+// ============================
+// 📊 cartSelectors.js
+// ============================
 // features/cart/cartSelectors.js
 export const selectCartItems = state => state.cart.items;
 
 export const selectTotalAmount = state =>
   state.cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-============================
-🧾 store.js
-============================
+// ============================
+// 🧾 store.js
+// ============================
 // app/store.js
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from '../features/cart/cartSlice';
@@ -86,9 +86,9 @@ export const store = configureStore({
   },
 });
 
-============================
-🚀 main.jsx
-============================
+// ============================
+// 🚀 main.jsx
+// ============================
 // main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -102,9 +102,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </Provider>
 );
 
-============================
-📦 App.jsx
-============================
+// ============================
+// 📦 App.jsx
+// ============================
 // App.jsx
 import React from 'react';
 import Cart from './features/cart/Cart';
@@ -120,9 +120,9 @@ const App = () => {
 
 export default App;
 
-============================
-🧩 Cart.jsx – UI
-============================
+// ============================
+// 🧩 Cart.jsx – UI
+// ============================
 // features/cart/Cart.jsx
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -159,14 +159,14 @@ const Cart = () => {
 
 export default Cart;
 
-============================
-📌 GHI CHÚ
-============================
-✅ Dự án chạy được với:
-1. `npx create-react-app`
-2. `npm install @reduxjs/toolkit react-redux`
-3. Dán đúng các file như trên
-4. Chạy `npm start`
+// ============================
+// 📌 GHI CHÚ
+// ============================
+// ✅ Dự án chạy được với:
+// 1. `npx create-react-app`
+// 2. `npm install @reduxjs/toolkit react-redux`
+// 3. Dán đúng các file như trên
+// 4. Chạy `npm start`
 
---------------------------------------
-(Bạn có thể tiếp tục các ngữ cảnh khác như: xác thực, theme, đa ngôn ngữ, filter, v.v.)
+// --------------------------------------
+// (Bạn có thể tiếp tục các ngữ cảnh khác như: xác thực, theme, đa ngôn ngữ, filter, v.v.)

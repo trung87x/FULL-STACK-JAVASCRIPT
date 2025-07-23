@@ -1,29 +1,29 @@
-============================
-🧩 Ngữ cảnh #3: Quản lý danh sách (CRUD)
-============================
+// ============================
+// 🧩 Ngữ cảnh #3: Quản lý danh sách (CRUD)
+// ============================
 
-🎯 Mục tiêu:
-Quản lý danh sách dữ liệu (todo list, danh sách người dùng, bài viết...) với các thao tác:
-- Add (thêm mới)
-- Edit (chỉnh sửa)
-- Delete (xóa)
-- Fetch (lấy danh sách từ server)
+// 🎯 Mục tiêu:
+// Quản lý danh sách dữ liệu (todo list, danh sách người dùng, bài viết...) với các thao tác:
+// - Add (thêm mới)
+// - Edit (chỉnh sửa)
+// - Delete (xóa)
+// - Fetch (lấy danh sách từ server)
 
-============================
-📁 Cấu trúc thư mục
-============================
-src/
-├── app/
-│   └── store.js
-├── features/
-│   └── todos/
-│       ├── todoSlice.js
-│       └── TodoList.jsx
-└── App.jsx
+// ============================
+// 📁 Cấu trúc thư mục
+// ============================
+// src/
+// ├── app/
+// │   └── store.js
+// ├── features/
+// │   └── todos/
+// │       ├── todoSlice.js
+// │       └── TodoList.jsx
+// └── App.jsx
 
-============================
-🧠 Redux Slice – todoSlice.js
-============================
+// ============================
+// 🧠 Redux Slice – todoSlice.js
+// ============================
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // Giả lập gọi API
@@ -72,9 +72,9 @@ const todoSlice = createSlice({
 export const { addTodo, deleteTodo, editTodo } = todoSlice.actions;
 export default todoSlice.reducer;
 
-============================
-⚙️ Store – store.js
-============================
+// ============================
+// ⚙️ Store – store.js
+// ============================
 import { configureStore } from "@reduxjs/toolkit";
 import todoReducer from "../features/todos/todoSlice";
 
@@ -84,9 +84,9 @@ export const store = configureStore({
   },
 });
 
-============================
-📦 Component sử dụng – TodoList.jsx
-============================
+// ============================
+// 📦 Component sử dụng – TodoList.jsx
+// ============================
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -153,9 +153,9 @@ export default function TodoList() {
   );
 }
 
-============================
-🔗 App.jsx
-============================
+// ============================
+// 🔗 App.jsx
+// ============================
 import React from "react";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
@@ -171,9 +171,9 @@ function App() {
 
 export default App;
 
-============================
-✅ Ghi chú cuối cùng
-============================
-- Đây là một ví dụ đầy đủ để bạn CRUD danh sách từ API hoặc local state.
-- Có thể áp dụng cho: todo, danh sách bài viết, danh sách sản phẩm...
-- Nếu cần pagination, filter, sort... bạn chỉ cần mở rộng thêm reducer & UI.
+// ============================
+// ✅ Ghi chú cuối cùng
+// ============================
+// - Đây là một ví dụ đầy đủ để bạn CRUD danh sách từ API hoặc local state.
+// - Có thể áp dụng cho: todo, danh sách bài viết, danh sách sản phẩm...
+// - Nếu cần pagination, filter, sort... bạn chỉ cần mở rộng thêm reducer & UI.

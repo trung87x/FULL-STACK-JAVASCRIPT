@@ -1,25 +1,25 @@
-=======================================================
-Ngữ cảnh #12: Test Redux logic
-=======================================================
+// =======================================================
+// Ngữ cảnh #12: Test Redux logic
+// =======================================================
 
-🎯 Mục tiêu:
-- Đảm bảo logic reducer và thunk hoạt động đúng như mong đợi
-- Dễ bảo trì khi code phức tạp hơn
-- Hạn chế bug do thay đổi logic
+// 🎯 Mục tiêu:
+// - Đảm bảo logic reducer và thunk hoạt động đúng như mong đợi
+// - Dễ bảo trì khi code phức tạp hơn
+// - Hạn chế bug do thay đổi logic
 
-=======================================================
-1. Cấu trúc đề xuất
-=======================================================
+// =======================================================
+// 1. Cấu trúc đề xuất
+// =======================================================
 
-src/
-├── features/
-│   └── counter/
-│       ├── counterSlice.js
-│       └── counter.test.js   <== test ở đây
+// src/
+// ├── features/
+// │   └── counter/
+// │       ├── counterSlice.js
+// │       └── counter.test.js   <== test ở đây
 
-=======================================================
-2. Ví dụ reducer đơn giản: counterSlice.js
-=======================================================
+// =======================================================
+// 2. Ví dụ reducer đơn giản: counterSlice.js
+// =======================================================
 import { createSlice } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({
@@ -38,9 +38,9 @@ const counterSlice = createSlice({
 export const { increment, decrement } = counterSlice.actions;
 export default counterSlice.reducer;
 
-=======================================================
-3. Viết test cho reducer: counter.test.js
-=======================================================
+// =======================================================
+// 3. Viết test cho reducer: counter.test.js
+// =======================================================
 import counterReducer, { increment, decrement } from "./counterSlice";
 
 describe("counter reducer", () => {
@@ -57,9 +57,9 @@ describe("counter reducer", () => {
   });
 });
 
-=======================================================
-4. Test thunk (nâng cao): fetch data async
-=======================================================
+// =======================================================
+// 4. Test thunk (nâng cao): fetch data async
+// =======================================================
 // slice: postsSlice.js
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -89,9 +89,9 @@ const postsSlice = createSlice({
 
 export default postsSlice.reducer;
 
-=======================================================
-5. Test thunk bằng mocking API: posts.test.js
-=======================================================
+// =======================================================
+// 5. Test thunk bằng mocking API: posts.test.js
+// =======================================================
 import reducer, { fetchPosts } from "./postsSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -117,12 +117,12 @@ describe("posts thunk", () => {
   });
 });
 
-=======================================================
-✅ Ghi chú:
-=======================================================
-- Unit test reducer: không cần mock, chạy nhanh, dễ viết
-- Test thunk cần mock API hoặc dùng thư viện `msw`, `axios-mock-adapter`
-- Có thể tách store test riêng để không ảnh hưởng app thật
-- Hữu ích cho dự án lớn hoặc khi dùng Redux nhiều logic xử lý
+// =======================================================
+// ✅ Ghi chú:
+// =======================================================
+// - Unit test reducer: không cần mock, chạy nhanh, dễ viết
+// - Test thunk cần mock API hoặc dùng thư viện `msw`, `axios-mock-adapter`
+// - Có thể tách store test riêng để không ảnh hưởng app thật
+// - Hữu ích cho dự án lớn hoặc khi dùng Redux nhiều logic xử lý
 
-🧪 Testing giúp bạn tự tin refactor và debug hiệu quả.
+// 🧪 Testing giúp bạn tự tin refactor và debug hiệu quả.

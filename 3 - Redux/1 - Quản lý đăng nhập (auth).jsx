@@ -1,11 +1,11 @@
-🧠 [Redux #1] Quản lý đăng nhập (auth)
---------------------------------------
-MODEL: Xác thực người dùng (user, token, trạng thái login/logout)
-CONTROLLER: Redux slice (authSlice), actions (login, logout), selector (state.auth)
+// 🧠 [Redux #1] Quản lý đăng nhập (auth)
+// --------------------------------------
+// MODEL: Xác thực người dùng (user, token, trạng thái login/logout)
+// CONTROLLER: Redux slice (authSlice), actions (login, logout), selector (state.auth)
 
---------------------------------------
-📄 authSlice.js
---------------------------------------
+// --------------------------------------
+// 📄 authSlice.js
+// --------------------------------------
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -31,9 +31,9 @@ const authSlice = createSlice({
 export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;
 
---------------------------------------
-📄 store.js
---------------------------------------
+// --------------------------------------
+// 📄 store.js
+// --------------------------------------
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './authSlice';
 
@@ -45,9 +45,9 @@ const store = configureStore({
 
 export default store;
 
---------------------------------------
-📄 LoginStatus.jsx
---------------------------------------
+// --------------------------------------
+// 📄 LoginStatus.jsx
+// --------------------------------------
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, logout } from './authSlice';
@@ -83,9 +83,9 @@ function LoginStatus() {
 
 export default LoginStatus;
 
---------------------------------------
-📄 index.js
---------------------------------------
+// --------------------------------------
+// 📄 index.js
+// --------------------------------------
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';

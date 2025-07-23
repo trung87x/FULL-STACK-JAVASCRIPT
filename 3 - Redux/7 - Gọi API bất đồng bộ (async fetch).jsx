@@ -1,35 +1,35 @@
-==============================
-Ngữ cảnh #7: Gọi API bất đồng bộ
-==============================
+// ==============================
+// Ngữ cảnh #7: Gọi API bất đồng bộ
+// ==============================
 
-🎯 Mục tiêu:
-- Gọi API lấy danh sách dữ liệu (VD: bài viết, người dùng...)
-- Lưu kết quả vào Redux store
-- Hiển thị trạng thái loading, error nếu có
+// 🎯 Mục tiêu:
+// - Gọi API lấy danh sách dữ liệu (VD: bài viết, người dùng...)
+// - Lưu kết quả vào Redux store
+// - Hiển thị trạng thái loading, error nếu có
 
-==============================
-1. Cài đặt ban đầu
-==============================
+// ==============================
+// 1. Cài đặt ban đầu
+// ==============================
 
-npm install @reduxjs/toolkit react-redux axios
+// npm install @reduxjs/toolkit react-redux axios
 
-==============================
-2. Cấu trúc thư mục
-==============================
+// ==============================
+// 2. Cấu trúc thư mục
+// ==============================
 
-src/
-├── app/
-│   └── store.js
-├── features/
-│   └── posts/
-│       ├── postsSlice.js
-│       └── PostsList.jsx
-├── App.jsx
-└── main.jsx
+// src/
+// ├── app/
+// │   └── store.js
+// ├── features/
+// │   └── posts/
+// │       ├── postsSlice.js
+// │       └── PostsList.jsx
+// ├── App.jsx
+// └── main.jsx
 
-==============================
-3. Tạo store
-==============================
+// ==============================
+// 3. Tạo store
+// ==============================
 // src/app/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import postsReducer from "../features/posts/postsSlice";
@@ -40,9 +40,9 @@ export const store = configureStore({
   },
 });
 
-==============================
-4. Gọi API với createAsyncThunk
-==============================
+// ==============================
+// 4. Gọi API với createAsyncThunk
+// ==============================
 // src/features/posts/postsSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -79,9 +79,9 @@ const postsSlice = createSlice({
 
 export default postsSlice.reducer;
 
-==============================
-5. Sử dụng trong Component
-==============================
+// ==============================
+// 5. Sử dụng trong Component
+// ==============================
 // src/features/posts/PostsList.jsx
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -110,9 +110,9 @@ export default function PostsList() {
   );
 }
 
-==============================
-6. Kết nối Redux vào React
-==============================
+// ==============================
+// 6. Kết nối Redux vào React
+// ==============================
 // main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -137,12 +137,12 @@ export default function App() {
   );
 }
 
-==============================
-✅ Kết quả:
-==============================
-- Giao diện tự động gọi API khi load lần đầu
-- Có xử lý loading và error
-- Dữ liệu được quản lý trong Redux store
-- Cách này giúp bạn:
-  - Tách biệt logic gọi API và UI
-  - Dễ test / tái sử dụng
+// ==============================
+// ✅ Kết quả:
+// ==============================
+// - Giao diện tự động gọi API khi load lần đầu
+// - Có xử lý loading và error
+// - Dữ liệu được quản lý trong Redux store
+// - Cách này giúp bạn:
+//   - Tách biệt logic gọi API và UI
+//   - Dễ test / tái sử dụng
