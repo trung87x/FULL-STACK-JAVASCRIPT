@@ -60,118 +60,154 @@
 
 ## I-3: Văn bản & liên kết
 
-- Tiêu đề: `<h1>.. <h6>` (chỉ một `<h1>` / trang).  
-- Đoạn văn: `<p>` — khoảng cách dùng `mb-*`.  
-- Danh sách: `<ul>`, `<ol>`, `<li>`.  
-- Liên kết: `<a href target rel>`. Nếu `target="_blank"` thì thêm `rel="noopener"`.  
-- Inline semantic: `<strong>`, `<em>`, `<mark>`, `<code>`.  
-
-Ví dụ:
-
 ```html
-<a href="https://tailwindcss.com" target="_blank" rel="noopener">
-  Tài liệu Tailwind
-</a>
+<h1>Trang Demo Văn bản</h1>
+<h2>Phần phụ 1</h2>
+<h3>Mục nhỏ hơn</h3>
+
+<p>Đây là một đoạn văn bản đơn giản để minh họa.</p>
+<p>
+  Đoạn này có <strong>từ in đậm</strong>, <em>từ in nghiêng</em>,
+  <mark>được đánh dấu</mark>, và một đoạn <code>code</code>.
+</p>
+
+<h2>Danh sách</h2>
+<ul>
+  <li>Táo</li>
+  <li>Chuối</li>
+  <li>Cam</li>
+</ul>
+
+<ol>
+  <li>Bước 1: Mở file HTML</li>
+  <li>Bước 2: Chỉnh sửa nội dung</li>
+  <li>Bước 3: Lưu lại</li>
+</ol>
+
+<h2>Liên kết</h2>
+<p>
+  Đây là
+  <a href="https://tailwindcss.com" target="_blank" rel="noopener"
+    >tài liệu Tailwind CSS</a
+  >
+  (mở tab mới).
+</p>
+<p>Đây là <a href="/lien-he">trang liên hệ</a> (điều hướng trong site).</p>
 ```
 
 ---
 
 ## I-4: Ảnh, SVG, video
 
-- `<img alt>` luôn có `alt` mô tả.  
-- Dùng `object-cover`, `aspect-video` để kiểm soát tỉ lệ.  
-- Ưu tiên SVG inline để đổi màu bằng `fill-current`.  
-- Với video/audio: dùng `controls` và `<track>` để có caption.  
-
-Ví dụ:
-
 ```html
-<img src="https://picsum.photos/640/360" alt="Ảnh minh hoạ">
+<img src="https://picsum.photos/640/360" alt="Cảnh thiên nhiên với núi và hồ" />
+
+<svg
+  width="48"
+  height="48"
+  viewBox="0 0 24 24"
+  aria-label="Biểu tượng ngôi sao"
+  role="img"
+>
+  <path
+    d="M12 17.3l-5.4 3.3 1.5-6.1L3 9.7l6.2-.5L12 3.6l2.8 5.6 6.2.5-5.1 4.8 1.5 6.1z"
+    fill="#444"
+  />
+</svg>
 ```
 
 ---
 
 ## I-5: Form cơ bản
 
-Cặp đôi quan trọng: `<label for>` ↔ `id`.
-
-```html
-<form>
-  <div>
-    <label for="email">Email</label>
-    <input id="email" type="email" required placeholder="you@example.com">
-  </div>
-  <div>
-    <label for="pw">Mật khẩu</label>
-    <input id="pw" type="password" minlength="6">
-  </div>
-  <div>
-    <input id="remember" type="checkbox">
-    <label for="remember">Ghi nhớ đăng nhập</label>
-  </div>
-  <button type="submit">Đăng nhập</button>
-</form>
-```
-
-Ví dụ khác:
-
 ```html
 <label for="q">Tìm kiếm</label>
-<input id="q" name="q" type="search" placeholder="Nhập từ khoá">
+<input id="q" name="q" type="search" class="border" placeholder="Nhập từ khoá">
 ```
 
 ---
 
 ## I-6: Bảng
 
-Dùng đúng `thead` / `tbody` / `th`.
-
 ```html
-<table>
-  <thead>
-    <tr>
-      <th>Từ</th>
-      <th>Nghĩa</th>
-      <th>Từ loại</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>apple</td><td>quả táo</td><td>noun</td>
-    </tr>
-    <tr>
-      <td>run</td><td>chạy</td><td>verb</td>
-    </tr>
-  </tbody>
-</table>
+<thead>
+  <tr>
+    <th>Từ</th>
+    <th>Nghĩa</th>
+    <th>Từ loại</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>apple</td>
+    <td>quả táo</td>
+    <td>danh từ</td>
+  </tr>
+  <tr>
+    <td>run</td>
+    <td>chạy</td>
+    <td>động từ</td>
+  </tr>
+  <tr>
+    <td>beautiful</td>
+    <td>xinh đẹp</td>
+    <td>tính từ</td>
+  </tr>
+</tbody>
 ```
 
 ---
 
 ## I-7: Meta & SEO cơ bản
 
-- `<meta name="description">` (~150 ký tự).  
-- Open Graph: `og:title`, `og:description`, `og:image`.  
-- Favicon: `<link rel="icon" href="/favicon.ico">`.  
-- Dùng `<button>` cho hành động, `<a>` cho điều hướng.  
-
-Ví dụ:
-
 ```html
-<meta property="og:title" content="EnglishKid">
-<meta property="og:description" content="Học từ vựng siêu nhanh.">
-<meta property="og:image" content="https://example.com/og.png">
+<meta name="description" content="Website học từ vựng tiếng Anh nhanh chóng, dễ nhớ và thân thiện với mọi người.">
+
+<meta property="og:title" content="EnglishKid - Học từ vựng nhanh">
+<meta property="og:description" content="Kho từ vựng có ví dụ minh hoạ, hỗ trợ tìm kiếm nhanh.">
+<meta property="og:image" content="https://example.com/cover.png">
+
+<link rel="icon" href="/favicon.ico">
+
+<h1>Meta & SEO cơ bản</h1>
+
+<a href="/pricing">Xem bảng giá</a>
+
+<button type="button" onclick="alert('Bạn đã nhấn nút!')">Mở thông báo</button>
 ```
 
 ---
 
 ## I-8: Truy cập (a11y) tối thiểu cần nhớ
 
-- Thứ tự heading hợp lý, không bỏ cấp tuỳ tiện.  
-- Ảnh phải có `alt` (nếu trang trí: `alt=""`).  
-- Label đúng cách, `tabindex` tự nhiên, `:focus` rõ ràng.  
-- Màu sắc tương phản (Tailwind hỗ trợ `focus`, `hover`, `aria-*`).  
-- Dùng `role` / `aria-*` khi thật sự cần.  
+```html
+<h1>Trang Demo A11y</h1>
+<h2>Mục chính</h2>
+<h3>Mục phụ</h3>
+
+<img src="apple.jpg" alt="Quả táo đỏ tươi" />
+<img src="border.png" alt="" />
+
+<form>
+  <div>
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" />
+  </div>
+  <div>
+    <label for="pw">Mật khẩu</label>
+    <input id="pw" type="password" name="pw" />
+  </div>
+  <button type="submit">Đăng nhập</button>
+</form>
+
+<a href="/home">Trang chủ</a>
+<button type="button">Mở modal</button>
+
+<div role="alert" aria-live="assertive">
+  Đăng nhập thất bại. Vui lòng thử lại.
+</div>
+```
 
 ---
 
@@ -180,29 +216,26 @@ Ví dụ:
 ### Card grid 3 cột responsive
 
 ```html
-<div>
-  <div>Card 1</div>
-  <div>Card 2</div>
-  <div>Card 3</div>
-</div>
+<section>
+  <h2>Card grid</h2>
+  <div>
+    <article>Card 1</article>
+    <article>Card 2</article>
+    <article>Card 3</article>
+  </div>
+</section>
 ```
 
 ### Sidebar layout
 
 ```html
-<div>
-  <aside>Sidebar</aside>
-  <section>Main content</section>
-</div>
+<section>
+  <h2>Sidebar layout</h2>
+  <div>
+    <aside>Sidebar</aside>
+    <main>Main content</main>
+  </div>
+</section>
 ```
-
 ---
-
-## I-10: Mẹo nhớ nhanh khi gắn Tailwind vào HTML
-
-1. Box trước, typography sau: `p-*`, `m-*`, `rounded-*` rồi mới màu/chữ.  
-2. Responsive theo mobile-first: mặc định → `sm:` → `md:` → `lg:` → `xl:`.  
-3. State: `hover:`, `focus:`, `active:`, `disabled:`, `aria-selected:`…  
-4. Nhóm phần tử: `space-x-*`, `space-y-*`, `divide-*`.  
-5. Icon SVG inline: đổi màu bằng `fill-current`, kích thước `w-* h-*`.  
-6. Utilities ít gặp nhưng hữu ích: `line-clamp-*`, `aspect-*`, `backdrop-blur`, `scroll-smooth`.  
+croll-smooth`.  
