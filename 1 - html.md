@@ -22,17 +22,23 @@
 
 ## I-2: Thẻ ngữ nghĩa thường dùng
 
-### <header>
+### header
 
 ```html
 <header>
   <h1>Trang Demo</h1>
 </header>
+```
 
+### nav
+
+```html
 <nav>
   <a href="/">Trang chủ</a> | <a href="/bai-viet">Bài viết</a> |
   <a href="/lien-he">Liên hệ</a>
 </nav>
+```
+
 
 <main>
   <section>
