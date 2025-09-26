@@ -22,6 +22,8 @@
 
 ## I-2: Thẻ ngữ nghĩa thường dùng
 
+### <header>
+
 ```html
 <header>
   <h1>Trang Demo</h1>
