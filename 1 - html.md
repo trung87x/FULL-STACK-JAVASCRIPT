@@ -7,14 +7,12 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>
 ```
 
@@ -34,7 +32,8 @@
 
 ```html
 <nav>
-  <a href="/">Trang chủ</a> | <a href="/bai-viet">Bài viết</a> | <a href="/lien-he">Liên hệ</a>
+  <a href="/">Trang chủ</a> | <a href="/bai-viet">Bài viết</a> |
+  <a href="/lien-he">Liên hệ</a>
 </nav>
 ```
 
@@ -88,7 +87,10 @@
 ### paragraph + inline
 
 ```html
-<p>Đoạn văn <strong>đậm</strong> <em>nghiêng</em> <mark>đánh dấu</mark> <code>code</code></p>
+<p>
+  Đoạn văn <strong>đậm</strong> <em>nghiêng</em> <mark>đánh dấu</mark>
+  <code>code</code>
+</p>
 ```
 
 ### list
@@ -110,7 +112,9 @@
 
 ```html
 <a href="/lien-he">Liên hệ</a>
-<a href="https://tailwindcss.com" target="_blank" rel="noopener">Tailwind CSS</a>
+<a href="https://tailwindcss.com" target="_blank" rel="noopener"
+  >Tailwind CSS</a
+>
 ```
 
 ---
@@ -127,7 +131,10 @@
 
 ```html
 <svg width="48" height="48" viewBox="0 0 24 24" aria-label="Ngôi sao">
-  <path d="M12 17.3l-5.4 3.3 1.5-6.1L3 9.7l6.2-.5L12 3.6l2.8 5.6 6.2.5-5.1 4.8 1.5 6.1z" fill="#444"/>
+  <path
+    d="M12 17.3l-5.4 3.3 1.5-6.1L3 9.7l6.2-.5L12 3.6l2.8 5.6 6.2.5-5.1 4.8 1.5 6.1z"
+    fill="#444"
+  />
 </svg>
 ```
 
@@ -135,7 +142,7 @@
 
 ```html
 <video controls>
-  <source src="demo.mp4" type="video/mp4">
+  <source src="demo.mp4" type="video/mp4" />
   Trình duyệt không hỗ trợ video.
 </video>
 ```
@@ -148,37 +155,35 @@
 
 ```html
 <label for="name">Tên</label>
-<input id="name" type="text" placeholder="Nhập tên">
+<input id="name" type="text" placeholder="Nhập tên" />
 ```
 
 ### input email
 
 ```html
-<label for="email">Email</label>
-<input id="email" type="email" required>
+<label for="email">Email</label> <input id="email" type="email" required />
 ```
 
 ### password
 
 ```html
-<label for="pw">Mật khẩu</label>
-<input id="pw" type="password" minlength="6">
+<label for="pw">Mật khẩu</label> <input id="pw" type="password" minlength="6" />
 ```
 
 ### checkbox
 
 ```html
-<input id="remember" type="checkbox">
+<input id="remember" type="checkbox" />
 <label for="remember">Ghi nhớ đăng nhập</label>
 ```
 
 ### radio
 
 ```html
-<input id="free" type="radio" name="plan" checked>
+<input id="free" type="radio" name="plan" checked />
 <label for="free">Gói Free</label>
 
-<input id="pro" type="radio" name="plan">
+<input id="pro" type="radio" name="plan" />
 <label for="pro">Gói Pro</label>
 ```
 
@@ -204,9 +209,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr><td>apple</td><td>quả táo</td><td>danh từ</td></tr>
-    <tr><td>run</td><td>chạy</td><td>động từ</td></tr>
-    <tr><td>beautiful</td><td>xinh đẹp</td><td>tính từ</td></tr>
+    <tr>
+      <td>apple</td>
+      <td>quả táo</td>
+      <td>danh từ</td>
+    </tr>
+    <tr>
+      <td>run</td>
+      <td>chạy</td>
+      <td>động từ</td>
+    </tr>
+    <tr>
+      <td>beautiful</td>
+      <td>xinh đẹp</td>
+      <td>tính từ</td>
+    </tr>
   </tbody>
 </table>
 ```
@@ -218,28 +235,27 @@
 ### meta description
 
 ```html
-<meta name="description" content="Website học từ vựng nhanh, dễ nhớ.">
+<meta name="description" content="Website học từ vựng nhanh, dễ nhớ." />
 ```
 
 ### open graph
 
 ```html
-<meta property="og:title" content="EnglishKid">
-<meta property="og:description" content="Kho từ vựng minh hoạ.">
-<meta property="og:image" content="https://example.com/cover.png">
+<meta property="og:title" content="EnglishKid" />
+<meta property="og:description" content="Kho từ vựng minh hoạ." />
+<meta property="og:image" content="https://example.com/cover.png" />
 ```
 
 ### favicon
 
 ```html
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="/favicon.ico" />
 ```
 
 ### button vs link
 
 ```html
-<a href="/pricing">Xem bảng giá</a>
-<button type="button">Mở thông báo</button>
+<a href="/pricing">Xem bảng giá</a> <button type="button">Mở thông báo</button>
 ```
 
 ---
@@ -257,25 +273,23 @@
 ### img alt
 
 ```html
-<img src="apple.jpg" alt="Quả táo đỏ" />
-<img src="border.png" alt="" />
+<img src="apple.jpg" alt="Quả táo đỏ" /> <img src="border.png" alt="" />
 ```
 
 ### form label
 
 ```html
 <label for="email">Email</label>
-<input id="email" type="email">
+<input id="email" type="email" />
 
 <label for="pw">Mật khẩu</label>
-<input id="pw" type="password">
+<input id="pw" type="password" />
 ```
 
 ### button + link
 
 ```html
-<a href="/home">Trang chủ</a>
-<button>Mở modal</button>
+<a href="/home">Trang chủ</a> <button>Mở modal</button>
 ```
 
 ### alert
