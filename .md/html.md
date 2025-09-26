@@ -211,21 +211,8 @@
 
 ```html
 <!-- Alt text -->
-<img src="apple.jpg" alt="Quả táo đỏ" /> <img src="border.png" alt="" />
-```
-
-```html
-<!-- Label for input -->
-<label for="email">Email</label>
-<input id="email" type="email" />
-
-<label for="pw">Mật khẩu</label>
-<input id="pw" type="password" />
-```
-
-```html
-<!-- Link vs Button -->
-<a href="/home">Trang chủ</a> <button>Mở modal</button>
+<img src="apple.jpg" alt="Quả táo đỏ" /> 
+<img src="border.png" alt="" />
 ```
 
 ```html
