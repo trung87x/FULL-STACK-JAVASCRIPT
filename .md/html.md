@@ -1,5 +1,17 @@
 # HTML
 
+## R: Mục lục
+
+- [R-1: Khung tài liệu tối thiểu](#i-1-khung-tài-liệu-tối-thiểu)
+- [R-2: Thẻ ngữ nghĩa thường dùng](#i-2-thẻ-ngữ-nghĩa-thường-dùng)
+- [R-3: Văn bản & liên kết](#i-3-văn-bản--liên-kết)
+- [R-4: Ảnh, SVG, video](#i-4-ảnh-svg-video)
+- [R-5: Form cơ bản](#i-5-form-cơ-bản)
+- [R-6: Bảng](#i-6-bảng)
+- [R-7: Meta & SEO cơ bản](#i-7-meta--seo-cơ-bản)
+- [R-8: Truy cập (a11y)](#i-8-truy-cập-a11y)
+- [R-9: Mẫu layout nhanh](#i-9-mẫu-layout-nhanh)
+
 ---
 
 ## I-1: Khung tài liệu tối thiểu
@@ -149,24 +161,20 @@
     <tr>
       <th>Từ</th>
       <th>Nghĩa</th>
-      <th>Từ loại</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>apple</td>
       <td>quả táo</td>
-      <td>danh từ</td>
     </tr>
     <tr>
       <td>run</td>
       <td>chạy</td>
-      <td>động từ</td>
     </tr>
     <tr>
       <td>beautiful</td>
       <td>xinh đẹp</td>
-      <td>tính từ</td>
     </tr>
   </tbody>
 </table>
@@ -195,7 +203,8 @@
 
 ```html
 <!-- Button & Link -->
-<a href="/pricing">Xem bảng giá</a> <button type="button">Mở thông báo</button>
+<a href="/pricing">Xem bảng giá</a>
+<button type="button">Mở thông báo</button>
 ```
 
 ---
@@ -211,13 +220,19 @@
 
 ```html
 <!-- Alt text -->
-<img src="apple.jpg" alt="Quả táo đỏ" /> 
+<img src="apple.jpg" alt="Quả táo đỏ" />
 <img src="border.png" alt="" />
 ```
 
 ```html
-<!-- Role -->
+<!-- Thay cho <header> -->
+<div role="banner">Header trang</div>
+<!-- Thông báo khẩn -->
 <div role="alert">Đăng nhập thất bại</div>
+<!-- Hộp thoại -->
+<div role="dialog">Đây là dialog</div>
+<!-- Nút bấm -->
+<span role="button" tabindex="0">Bấm vào đây</span>
 ```
 
 ---
@@ -232,17 +247,6 @@
     <article>Card 1</article>
     <article>Card 2</article>
     <article>Card 3</article>
-  </div>
-</section>
-```
-
-```html
-<!-- Sidebar layout -->
-<section>
-  <h2>Sidebar</h2>
-  <div>
-    <aside>Sidebar</aside>
-    <main>Main content</main>
   </div>
 </section>
 ```
