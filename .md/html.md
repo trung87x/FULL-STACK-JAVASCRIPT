@@ -263,7 +263,7 @@
 </footer>
 ```
 
-
+```html
 <!-- 3. Blog (Article + Aside) -->
 <header><h1>Layout 3: Blog</h1></header>
 <main class="two-col">
@@ -283,7 +283,9 @@
   </aside>
 </main>
 <footer><p>© Blog</p></footer>
+```
 
+```html
 <!-- 4. Landing Page -->
 <header><h1>Layout 4: Landing Page</h1></header>
 <section class="three-col">
@@ -298,7 +300,9 @@
   </details>
 </aside>
 <footer><p>© Shop X</p></footer>
+```
 
+```html
 <!-- 5. News Page -->
 <header><h1>Layout 5: Trang Tin tức</h1></header>
 <nav>
@@ -314,7 +318,9 @@
   <aside><h3>Quảng cáo</h3></aside>
 </main>
 <footer><p>© Báo Online</p></footer>
+```
 
+```html
 <!-- 6. FAQ Page -->
 <header><h1>Layout 6: FAQ</h1></header>
 <main>
@@ -330,7 +336,9 @@
   </section>
 </main>
 <footer><p>© FAQ</p></footer>
+```
 
+```html
 <!-- 7. Portfolio -->
 <header><h1>Layout 7: Portfolio</h1></header>
 <main class="three-col">
@@ -339,7 +347,9 @@
   <article><h2>Dự án 3</h2><p>Mô tả...</p></article>
 </main>
 <footer><p>© Portfolio</p></footer>
+```
 
+```html
 <!-- 8. About Us -->
 <header><h1>Layout 8: About Us</h1></header>
 <main class="flex">
@@ -353,7 +363,9 @@
   </aside>
 </main>
 <footer><p>© Company</p></footer>
+```
 
+```html
 <!-- 9. Documentation -->
 <header><h1>Layout 9: Documentation</h1></header>
 <main class="two-col">
@@ -370,7 +382,9 @@
   </section>
 </main>
 <footer><p>© Docs</p></footer>
+```
 
+```html
 <!-- 10. E-learning -->
 <header><h1>Layout 10: E-learning</h1></header>
 <main>
