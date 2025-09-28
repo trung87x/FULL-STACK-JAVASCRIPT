@@ -2,15 +2,15 @@
 
 ## R: Mục lục
 
-- [R-1: Khung tài liệu tối thiểu](#i-1-khung-tài-liệu-tối-thiểu)
-- [R-2: Thẻ ngữ nghĩa thường dùng](#i-2-thẻ-ngữ-nghĩa-thường-dùng)
-- [R-3: Văn bản & liên kết](#i-3-văn-bản--liên-kết)
-- [R-4: Ảnh, SVG, video](#i-4-ảnh-svg-video)
-- [R-5: Form cơ bản](#i-5-form-cơ-bản)
-- [R-6: Bảng](#i-6-bảng)
-- [R-7: Meta & SEO cơ bản](#i-7-meta--seo-cơ-bản)
-- [R-8: Truy cập (a11y)](#i-8-truy-cập-a11y)
-- [R-9: Mẫu layout nhanh](#i-9-mẫu-layout-nhanh)
+- [I-1: Khung tài liệu tối thiểu](#i-1-khung-tài-liệu-tối-thiểu)
+- [I-2: Thẻ ngữ nghĩa thường dùng](#i-2-thẻ-ngữ-nghĩa-thường-dùng)
+- [I-3: Văn bản & liên kết](#i-3-văn-bản--liên-kết)
+- [I-4: Ảnh, SVG, video](#i-4-ảnh-svg-video)
+- [I-5: Form cơ bản](#i-5-form-cơ-bản)
+- [I-6: Bảng](#i-6-bảng)
+- [I-7: Meta & SEO cơ bản](#i-7-meta--seo-cơ-bản)
+- [I-8: Truy cập (a11y)](#i-8-truy-cập-a11y)
+- [I-9: Mẫu layout nhanh](#i-9-mẫu-layout-nhanh)
 
 ---
 
