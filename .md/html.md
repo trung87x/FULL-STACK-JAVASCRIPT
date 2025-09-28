@@ -240,13 +240,150 @@
 ## I-9: Mẫu layout nhanh
 
 ```html
-<!-- Card grid -->
-<section>
-  <h2>Card grid</h2>
-  <div>
-    <article>Card 1</article>
-    <article>Card 2</article>
-    <article>Card 3</article>
-  </div>
+<!-- 1. Header + Footer -->
+<header>
+  <h1>Layout 1: Header + Footer</h1>
+</header>
+<footer>
+  <p>© 2025 Example</p>
+</footer>
+```
+
+```html
+<!-- 2. Header + Nav + Footer -->
+<header>
+  <h1>Layout 2: Header + Nav + Footer</h1>
+  <nav>
+    <a href="#">Trang chủ</a>
+    <a href="#">Giới thiệu</a>
+  </nav>
+</header>
+<footer>
+  <p>© 2025 Example</p>
+</footer>
+```
+
+
+<!-- 3. Blog (Article + Aside) -->
+<header><h1>Layout 3: Blog</h1></header>
+<main class="two-col">
+  <section>
+    <article>
+      <h2>Bài viết 1</h2>
+      <p>Nội dung...</p>
+    </article>
+    <article>
+      <h2>Bài viết 2</h2>
+      <p>Nội dung...</p>
+    </article>
+  </section>
+  <aside>
+    <h3>Sidebar</h3>
+    <p>Bài viết nổi bật...</p>
+  </aside>
+</main>
+<footer><p>© Blog</p></footer>
+
+<!-- 4. Landing Page -->
+<header><h1>Layout 4: Landing Page</h1></header>
+<section class="three-col">
+  <article><h2>Sản phẩm A</h2><p>Mô tả...</p></article>
+  <article><h2>Sản phẩm B</h2><p>Mô tả...</p></article>
+  <article><h2>Sản phẩm C</h2><p>Mô tả...</p></article>
 </section>
+<aside>
+  <details>
+    <summary>Khuyến mãi</summary>
+    <p>Giảm giá 20% hôm nay!</p>
+  </details>
+</aside>
+<footer><p>© Shop X</p></footer>
+
+<!-- 5. News Page -->
+<header><h1>Layout 5: Trang Tin tức</h1></header>
+<nav>
+  <a href="#">Thời sự</a>
+  <a href="#">Kinh tế</a>
+  <a href="#">Thể thao</a>
+</nav>
+<main class="two-col">
+  <section>
+    <article><h2>Tin mới A</h2><p>Chi tiết...</p></article>
+    <article><h2>Tin mới B</h2><p>Chi tiết...</p></article>
+  </section>
+  <aside><h3>Quảng cáo</h3></aside>
+</main>
+<footer><p>© Báo Online</p></footer>
+
+<!-- 6. FAQ Page -->
+<header><h1>Layout 6: FAQ</h1></header>
+<main>
+  <section>
+    <details>
+      <summary>Câu hỏi 1</summary>
+      <p>Trả lời 1...</p>
+    </details>
+    <details>
+      <summary>Câu hỏi 2</summary>
+      <p>Trả lời 2...</p>
+    </details>
+  </section>
+</main>
+<footer><p>© FAQ</p></footer>
+
+<!-- 7. Portfolio -->
+<header><h1>Layout 7: Portfolio</h1></header>
+<main class="three-col">
+  <article><h2>Dự án 1</h2><p>Mô tả...</p></article>
+  <article><h2>Dự án 2</h2><p>Mô tả...</p></article>
+  <article><h2>Dự án 3</h2><p>Mô tả...</p></article>
+</main>
+<footer><p>© Portfolio</p></footer>
+
+<!-- 8. About Us -->
+<header><h1>Layout 8: About Us</h1></header>
+<main class="flex">
+  <section>
+    <h2>Giới thiệu</h2>
+    <p>Chúng tôi là...</p>
+  </section>
+  <aside>
+    <h3>Thông tin thêm</h3>
+    <p>Liên hệ...</p>
+  </aside>
+</main>
+<footer><p>© Company</p></footer>
+
+<!-- 9. Documentation -->
+<header><h1>Layout 9: Documentation</h1></header>
+<main class="two-col">
+  <nav>
+    <ul>
+      <li><a href="#">Giới thiệu</a></li>
+      <li><a href="#">Cài đặt</a></li>
+      <li><a href="#">API</a></li>
+    </ul>
+  </nav>
+  <section>
+    <article><h2>Chương 1</h2><p>Nội dung...</p></article>
+    <article><h2>Chương 2</h2><p>Nội dung...</p></article>
+  </section>
+</main>
+<footer><p>© Docs</p></footer>
+
+<!-- 10. E-learning -->
+<header><h1>Layout 10: E-learning</h1></header>
+<main>
+  <section>
+    <article><h2>Bài học 1</h2><p>Nội dung...</p></article>
+    <article><h2>Bài học 2</h2><p>Nội dung...</p></article>
+  </section>
+  <aside>
+    <details>
+      <summary>Bài tập</summary>
+      <p>Làm 5 câu hỏi trắc nghiệm...</p>
+    </details>
+  </aside>
+</main>
+<footer><p>© E-learning</p></footer>
 ```
