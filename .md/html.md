@@ -2,7 +2,7 @@
 
 ## R: Mục lục
 
-- [I-1: Khung tài liệu tối thiểu](#i-1-khung-tài-liệu-tối-thiểu)
+- [R-1: Khung tài liệu tối thiểu](#i-1-khung-tài-liệu-tối-thiểu)
 - [R-2: Thẻ ngữ nghĩa thường dùng](#i-2-thẻ-ngữ-nghĩa-thường-dùng)
 - [R-3: Văn bản & liên kết](#i-3-văn-bản--liên-kết)
 - [R-4: Ảnh, SVG, video](#i-4-ảnh-svg-video)
